@@ -1,3 +1,4 @@
+/// <reference types="@types/googlemaps" />
 import { User } from './classes/User';
 import { Company } from './classes/Company';
 
@@ -6,3 +7,5 @@ console.log(user);
 
 const company = new Company();
 console.log(company);
+
+google
