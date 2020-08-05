@@ -1,3 +1,15 @@
+import { User } from './User';
+import { Company } from './Company';
+
+// Instruction to every other class
+// on how they can be an argument to 'addMarker'
+interface Mappable {
+    location: {
+        lat: number;
+        lng: number;
+    };
+};
+
 export class CustomMap {
     private googleMap: google.maps.Map;
 
@@ -7,11 +19,21 @@ export class CustomMap {
         $mapContainer.style.height = '100vh';
 
         this.googleMap = new google.maps.Map($mapContainer, {
-            zoom: 6,
+            zoom: 2,
             center: {
                 lat: 0,
                 lng: 0,
             },
+        });
+    }
+
+    addMarker(mappable: Mappable): void {
+        new google.maps.Marker({
+            map: this.googleMap,
+            position: {
+                lat: mappable.location.lat,
+                lng: mappable.location.lng,
+            }
         });
     }
 
