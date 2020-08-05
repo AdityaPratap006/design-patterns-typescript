@@ -8,4 +8,14 @@ console.log(user);
 const company = new Company();
 console.log(company);
 
-google
+const $mapContainer = <HTMLDivElement>document.getElementById('map');
+$mapContainer.style.width = '100%';
+$mapContainer.style.height = '100vh';
+
+const map = new google.maps.Map($mapContainer, {
+    zoom: 6,
+    center: {
+        lat: 0,
+        lng: 0,
+    },
+});
